@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ImageShower.Models;
 
 namespace ImageShower
 {
     class Downloader
     {
-        public ImageSource DownloadImage(string url)
+        public ImageModel DownloadImage(string url)
         {
             using (WebClient client = new WebClient())
             {
@@ -23,7 +24,7 @@ namespace ImageShower
                 {
                     using (var yourImage = Image.FromStream(mem))
                     {
-                        var outputImage = ConvertImage(yourImage);
+                        ImageModel outputImage = new ImageModel() { Image = ConvertImage(yourImage), IsPosted = true};
                         return outputImage;
                     }
                 }

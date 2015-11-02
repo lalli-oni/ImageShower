@@ -48,7 +48,7 @@ namespace ImageShower
                 }
                 try
                 {
-                    imageBox.Source = dl.DownloadImage(inputBox.Text);
+                    imageBox.Source = dl.DownloadImage(inputBox.Text).Image;
                     textBox.Content = _url;
                     ResizeWindow();
                 }
